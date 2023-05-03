@@ -1,6 +1,6 @@
 import ir_datasets
 from ir_datasets.formats import JsonlDocs, TrecXmlQueries
-from typing import NamedTuple, Dict
+from typing import NamedTuple
 from ir_datasets.datasets.base import Dataset
 
 class AnthologyDocument(NamedTuple):
@@ -10,7 +10,7 @@ class AnthologyDocument(NamedTuple):
     def default_text(self):
         return self.text
 
-ir_datasets.registry.register('iranthology-ir-lab-sose-2023-order-google-scholar', Dataset(
+ir_datasets.registry.register('iranthology-order-google-scholar', Dataset(
     JsonlDocs(ir_datasets.util.PackageDataFile(path='datasets_in_progress/anthology_documents.jsonl'), doc_cls=AnthologyDocument, lang='en'),
     TrecXmlQueries(ir_datasets.util.PackageDataFile(path='datasets_in_progress/anthology_topics.xml'), lang='en')
 ))
